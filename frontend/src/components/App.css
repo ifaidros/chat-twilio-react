@@ -1,0 +1,20 @@
+.container{
+  width: 50%; 
+  height: 600px;
+  margin: 30px auto;
+  border: double;
+  background-color: snow;
+  text-align: center;
+}
+
+.header-div{
+  color: rgb(37, 33, 33);
+  background: rgb(127, 186, 224);
+  padding-top:20px;
+  min-height:70px;
+  border-top:#3e75ec 3px solid;
+  border-bottom:#3e75ec 3px solid;
+  text-align:center;
+  width: 100%;
+  margin: 0 auto;
+}

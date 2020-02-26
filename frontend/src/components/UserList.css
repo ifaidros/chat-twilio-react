@@ -1,0 +1,10 @@
+.users-list{
+    background: rgb(96, 153, 199);
+    width: 30%;
+    height: 300px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    float: left;
+    margin: 0 auto;
+}
