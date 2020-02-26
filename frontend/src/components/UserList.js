@@ -15,7 +15,13 @@ class UserList extends Component {
         <button
         onClick={this.props.handleToken}
         >
-        Get Token?
+        Want token?
+        </button>
+        <div> hello</div>
+        <button
+        onClick={this.props.handleToken}
+        >
+        Get it!
         </button>
       </div>
 
