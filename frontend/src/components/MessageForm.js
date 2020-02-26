@@ -16,7 +16,7 @@ class MessageForm extends Component {
   
   render() {
     return (
-      <div id="message-form">
+      <div>
         <form id="message-form" autoComplete="off" onSubmit={this.onSubmit}>
           <input
            id="input_txt" 
