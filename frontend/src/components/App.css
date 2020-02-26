@@ -1,10 +1,7 @@
 .container{
   width: 50%; 
-  height: 600px;
-  margin: 30px auto;
-  border: double;
-  background-color: snow;
-  text-align: center;
+  margin: 50px auto;
+
 }
 
 .header-div{
@@ -17,4 +14,24 @@
   text-align:center;
   width: 100%;
   margin: 0 auto;
+}
+
+button {
+  background: #328332;
+  border: none;
+  border-bottom: 2px solid #153b24;
+  cursor: pointer;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: .4rem;
+  transition: background .3s ease, color .3s ease;
+}
+
+button:hover {
+  background: rgb(58, 135, 112);
+}
+
+option {
+  cursor: pointer;
 }

@@ -10,8 +10,9 @@ class UserList extends Component {
   
   render() {
     return (
-      <div className="users-list">
-        <h2>UserList!</h2> 
+      <div id="users-list">
+        <h3>Available Users:</h3>
+        <h1 id="h1Error"></h1>
         <button
         onClick={this.props.handleToken}
         >

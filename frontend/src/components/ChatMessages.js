@@ -7,8 +7,8 @@ class ChatMessages extends Component {
   
   render() {
     return (
-      <div className="chat-messages">
-        <h2>ChatMessages!</h2> 
+      <div id="chat-messages">
+        <div id="output"></div>   
       </div>
     )
   }

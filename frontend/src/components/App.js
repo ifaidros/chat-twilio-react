@@ -5,6 +5,8 @@ import './UserList';
 import './ChatMessages';
 import UserList from './UserList';
 import ChatMessages from './ChatMessages';
+import MessageForm from './MessageForm';
+import Buttons from './Buttons';
 
 
 class App extends Component {
@@ -28,11 +30,13 @@ class App extends Component {
     return (
       <div className="container">
         <div className="header-div">
-          <h3>Chat with Twilio</h3>  
+          <h2>Chat with Twilio</h2>  
         </div>
 
         <UserList handleToken={this.handleToken}/>
         <ChatMessages />
+        <MessageForm />
+        <Buttons />
       </div>
     )
   }
