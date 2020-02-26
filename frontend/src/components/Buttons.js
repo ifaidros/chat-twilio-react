@@ -10,7 +10,7 @@ class Buttons extends Component {
   
   render() {
     return (
-      <div className="buttons">
+      <div id="buttons">
             <button id="btnGetToken">1-Choose User</button>
             <button id="btnCreateClientGetToken">2-Create Client</button>
             <button id="btnGetPublicChannelDescr">3-Get Public Channel Descriptors</button>
