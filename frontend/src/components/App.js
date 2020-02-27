@@ -253,7 +253,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="header-div">
-          <h2>Chat with Twilio</h2>  
+          <h2>Chat with Twilio (w/React)</h2>  
         </div>
 
         <UserList handleToken={this.handleToken}/>
