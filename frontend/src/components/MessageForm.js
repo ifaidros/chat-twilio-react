@@ -5,19 +5,20 @@ import './MessageForm.css';
 
 class MessageForm extends Component {
 
-  SendMessage = (e) => {
-    console.log('clicked')
+  constructor(props) {
+    super(props)
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log('submitted')
+  SendMessage = (e) => {
+    //console.log('clicked')
   }
+
+
   
   render() {
     return (
       <div>
-        <form id="message-form" autoComplete="off" onSubmit={this.onSubmit}>
+        <form id="message-form" autoComplete="off" onSubmit={this.props.onSubmitHandler}>
           <input
            id="input_txt" 
            name="message" 
