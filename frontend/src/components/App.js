@@ -56,7 +56,7 @@ class App extends Component {
       ACCESS_TOKEN = token
       console.log('---->Access Token: ', ACCESS_TOKEN) 
       userSelectionMenu.remove()
-      //document.querySelector('#btnGetToken').disabled = true
+      document.querySelector('#btnGetToken').disabled = true
       //GetAvailableUsers()        
       })
   }
@@ -71,6 +71,7 @@ class App extends Component {
     Chat.create(ACCESS_TOKEN).then(client => { 
       chatClient = client
       console.log(chatClient)
+      document.querySelector('#btnCreateClientGetToken').disabled = true
     });
 
     //console.log('---->Chat client created:', chatClient)
@@ -80,6 +81,7 @@ class App extends Component {
   GetPublicChannelDescr = (e) => {
     e.preventDefault()
     console.log('---->Public Channel Descriptors')
+    document.querySelector('#btnGetPublicChannelDescr').disabled = true
     chatClient.getPublicChannelDescriptors().then((paginator) => {      
         for (let i = 0; i < paginator.items.length; i++) {
           const channel = paginator.items[i];
@@ -94,6 +96,7 @@ class App extends Component {
   GetUserChannelDescr = (e) => {
     e.preventDefault()
     console.log('---->User Channel Descriptors')
+    document.querySelector('#btnGetUserChannelDescr').disabled = true
     chatClient.getUserChannelDescriptors().then((paginator) => {
         console.log('Number of User Channel Descriptors: ', paginator.items.length)
         for (let i = 0; i < paginator.items.length; i++) {
@@ -113,22 +116,20 @@ class App extends Component {
     chatChannel.getChannel().then((channel) => {
         chatChannel = channel
         console.log('---->chatChannel is now :', chatChannel)
+        document.querySelector('#btnJoinChannel').disabled = true
 
         chatChannel.join().then((result) => {console.log('---->Joined the channel ', result)}).catch((err) => {
             console.log("Couldn't join channel " + chatChannel.friendlyName + ' because ' + err)
         }) 
 
 
-        chatChannel.on('typingStarted', function(member) {
-            //process the member to show typing
-            console.log('typing')
+        chatChannel.on('typingStarted', (member) => {
+            console.log(member.identity, ' started typing')
             //updateTypingIndicator(member, true);
-        })
-        
-        //set  the listener for the typing ended Channel event
-        chatChannel.on('typingEnded', function(member) {
-            //process the member to stop showing typing
-            console.log('typing')
+        })        
+
+        chatChannel.on('typingEnded', (member) => {
+          console.log(member.identity, ' stopped typing')
             //updateTypingIndicator(member, false);
         })
     })
@@ -248,6 +249,12 @@ class App extends Component {
     document.querySelector('#input_txt').value = ''
     document.querySelector('#input_txt').focus()  
   }
+
+  onTyping = (e) => {
+    chatChannel.typing()
+  }
+
+
   
   render() {
     return (
@@ -258,7 +265,7 @@ class App extends Component {
 
         <UserList handleToken={this.handleToken}/>
         <ChatMessages messages={this.state.messages}/>
-        <MessageForm onSubmitHandler={this.onSubmit}/>
+        <MessageForm onSubmitHandler={this.onSubmit} onTypingHandler={this.onTyping}/>
         <Buttons GetTokenHandler={this.GetToken} CreateClientGetTokenHandler={this.CreateClientGetToken} GetPublicChannelDescrHandler={this.GetPublicChannelDescr} 
         GetUserChannelDescrHandler={this.GetUserChannelDescr} JoinChannelHandler={this.JoinChannel} LeaveChannelHandler={this.LeaveChannel} GetMessagesHandler={this.GetMessages} />
       </div>

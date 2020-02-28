@@ -12,8 +12,6 @@ class MessageForm extends Component {
   SendMessage = (e) => {
     //console.log('clicked')
   }
-
-
   
   render() {
     return (
@@ -24,6 +22,7 @@ class MessageForm extends Component {
            name="message" 
            placeholder="Message"
            onChange={this.SendMessage}
+           onKeyDown={this.props.onTypingHandler}
            />
           <button id="btnSendMessage">Send</button>
         </form> 
